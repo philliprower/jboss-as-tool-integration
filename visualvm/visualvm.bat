@@ -84,7 +84,7 @@ call :SearchForJars "%JBOSS_MODULEPATH%\system\layers\base\org\jboss\dmr\main"
 call :SearchForJars "%JBOSS_MODULEPATH%\system\layers\base\org\jboss\as\controller-client\main"
 call :SearchForJars "%JBOSS_MODULEPATH%\system\layers\base\org\jboss\threads\main"
   
-"%VISUALVM_HOME%\bin\visualvm.exe" "-cp:a" "%CLASSPATH%" 
+"%VISUALVM_HOME%\bin\jvisualvm.exe" "-cp:a" "%CLASSPATH%" 
 
 :END
 goto :EOF
