@@ -73,18 +73,18 @@ fi
 CLASSPATH=""
 # CLASSPATH=$CLASSPATH:$JAVA_HOME/lib/tools.jar
 
-MODULES="org/jboss/remoting3/remoting-jmx org/jboss/remoting3 org/jboss/logging org/jboss/xnio org/jboss/xnio/nio org/jboss/sasl org/jboss/marshalling org/jboss/marshalling/river"
+MODULES="org/jboss/remoting-jmx org/jboss/remoting3 org/jboss/logging org/jboss/xnio org/jboss/xnio/nio org/jboss/sasl org/jboss/marshalling org/jboss/marshalling/river org/jboss/as/cli org/jboss/staxmapper org/jboss/as/protocol org/jboss/dmr org/jboss/as/controller-client org/jboss/threads"
 
 for MODULE in $MODULES
 do
-    for JAR in `cd "$JBOSS_MODULEPATH/$MODULE/main/" && ls -1 *.jar`
+    for JAR in `cd "$JBOSS_MODULEPATH/system/layers/base/$MODULE/main/" && ls -1 *.jar`
     do
-        CLASSPATH="$CLASSPATH:$JBOSS_MODULEPATH/$MODULE/main/$JAR"
+        CLASSPATH="$CLASSPATH:$JBOSS_MODULEPATH/system/layers/base/$MODULE/main/$JAR"
     done
 done
 
-
-jvisualvm -cp:a $CLASSPATH
+echo "JAVA_HOME = $JAVA_HOME"
+jvisualvm --jdkhome $JAVA_HOME -cp:a $CLASSPATH 
 
 
 
